@@ -1,0 +1,33 @@
+type Movie = record {
+  id : text;
+  mainArtists : vec text;
+  title : text;
+  duration : text;
+  directedBy : text;
+  producedBy : text;
+  owner : principal;
+  createdAt : nat64;
+  description : text;
+  updatedAt : opt nat64;
+  trailerImage : text;
+};
+type MoviePayload = record {
+  mainArtists : vec text;
+  title : text;
+  duration : text;
+  directedBy : text;
+  producedBy : text;
+  description : text;
+  trailerImage : text;
+};
+type _AzleResult = variant { Ok : Movie; Err : text };
+type _AzleResult_1 = variant { Ok : vec Movie; Err : text };
+service : () -> {
+  createMovie : (MoviePayload) -> (_AzleResult);
+  deleteMovie : (text) -> (_AzleResult);
+  getAllMovies : () -> (_AzleResult_1) query;
+  getMovieById : (text) -> (_AzleResult) query;
+  getMovieByTitle : (text) -> (_AzleResult) query;
+  getMoviesByArtist : (text) -> (_AzleResult_1) query;
+  updateMovie : (text, MoviePayload) -> (_AzleResult);
+}
