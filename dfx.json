@@ -1,0 +1,13 @@
+{
+    "canisters": {
+        "movie_house": {
+            "type": "custom",
+            "build": "npx azle movie_house",
+            "root": "src",
+            "ts": "src/index.ts",
+            "candid": "src/index.did",
+            "wasm": ".azle/movie_house/movie_house.wasm.gz"
+        }
+    }
+}
+
